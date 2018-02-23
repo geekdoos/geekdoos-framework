@@ -42,7 +42,7 @@ class Router
     /**
      * This method is designed to take any HTTP Method (GET, POST, PUT, DELETE, ...)
      *
-     * 
+     *
      * @param string $method
      * @param string $uri
      * @param callable $callback
@@ -60,7 +60,7 @@ class Router
     public function match(ServerRequestInterface $request) : ?Route
     {
         $zendRouteResult = $this->router->match($request);
-        if($zendRouteResult->isSuccess()){
+        if ($zendRouteResult->isSuccess()) {
             return new Route(
                 $zendRouteResult->getMatchedRouteName(),
                 $zendRouteResult->getMatchedMiddleware(),
@@ -80,5 +80,4 @@ class Router
     {
         return $this->router->generateUri($name, $params);
     }
-
 }

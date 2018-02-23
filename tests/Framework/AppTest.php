@@ -25,24 +25,6 @@ class AppTest extends TestCase
         $this->assertEquals(301, $response->getStatusCode());
     }
 
-    public function testBlog()
-    {
-        $app = new App();
-        $request = new ServerRequest("GET", "/blog");
-        $response = $app->run($request);
-        $this->assertEquals("<h1>Welcome to the blog page</h1>", $response->getBody());
-        $this->assertEquals(200, $response->getStatusCode());
-    }
-
-    public function testNews()
-    {
-        $app = new App();
-        $request = new ServerRequest("GET", "/news");
-        $response = $app->run($request);
-        $this->assertEquals("<h1>Welcome to the news page</h1>", $response->getBody());
-        $this->assertEquals(200, $response->getStatusCode());
-    }
-
     public function testError404()
     {
         $app = new App();

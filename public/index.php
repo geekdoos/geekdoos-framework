@@ -12,9 +12,12 @@ use GuzzleHttp\Psr7\ServerRequest;
 require "../vendor/autoload.php";
 
 $app = new App([
-    BlogModule::class,
+    \App\Blog\BlogModule::class,
 ]);
 
-$response = $app->run(ServerRequest::fromGlobals());
-
-\Http\Response\send($response);
+try {
+    $response = $app->run(ServerRequest::fromGlobals());
+    \Http\Response\send($response);
+} catch (Exception $e) {
+    $e->getMessage();
+}

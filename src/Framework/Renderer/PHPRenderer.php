@@ -1,14 +1,14 @@
 <?php
 /**
- * Created by PhpStorm.
+ * Created by GeeKDooS.
  * User: GeeKDooS
  * Date: 24/02/2018
  * Time: 11:51
  */
 
-namespace App\Framework;
+namespace App\Framework\Renderer;
 
-class Renderer
+class PHPRenderer implements RendererInterface
 {
     /**
      * The default namespace for the paths
@@ -22,6 +22,13 @@ class Renderer
      * @var array All globals variables are stored in this variable
      */
     private $globals = [];
+
+    public function __construct(?string $defaultPath = null)
+    {
+        if (!is_null($defaultPath)) {
+            $this->addPath($defaultPath);
+        }
+    }
 
     /**
      * This method add a path to oad views from a namespace

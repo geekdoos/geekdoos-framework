@@ -11,8 +11,10 @@ use GuzzleHttp\Psr7\ServerRequest;
 
 require "../vendor/autoload.php";
 
-$renderer = new \App\Framework\Renderer();
-$renderer->addPath(dirname(__DIR__).'/templates');
+$renderer = new \App\Framework\Renderer\TwigRenderer(dirname(__DIR__).'/templates');
+
+//$loader = new Twig_Loader_Filesystem((__DIR__).'/templates');
+//$twig = new Twig_Environment($loader, []);
 
 $app = new App([
     \App\Blog\BlogModule::class,

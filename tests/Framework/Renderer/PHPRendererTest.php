@@ -3,16 +3,17 @@
  * Created by PhpStorm.
  * User: GeeKDooS
  * Date: 24/02/2018
- * Time: 11:50
+ * Time: 16:38
  */
 
-namespace Test\Framework;
+namespace Test\Framework\Renderer;
 
-use App\Framework\PHPRenderer;
+use App\Framework\Renderer\PHPRenderer;
 use PHPUnit\Framework\TestCase;
 
-class RendererTest extends TestCase
+class PHPRendererTest extends TestCase
 {
+
     /**
      * @var PHPRenderer
      */
@@ -20,9 +21,7 @@ class RendererTest extends TestCase
 
     public function setUp()
     {
-        $this->renderer = new PHPRenderer();
-
-        $this->renderer->addPath(__DIR__ . '/views');
+        $this->renderer = new PHPRenderer(__DIR__ . '/views');
     }
 
     public function testRenderTheRightPath(){

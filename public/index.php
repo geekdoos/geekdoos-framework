@@ -11,8 +11,13 @@ use GuzzleHttp\Psr7\ServerRequest;
 
 require "../vendor/autoload.php";
 
+$renderer = new \App\Framework\Renderer();
+$renderer->addPath(dirname(__DIR__).'/templates');
+
 $app = new App([
     \App\Blog\BlogModule::class,
+], [
+    'renderer' => $renderer,
 ]);
 
 try {

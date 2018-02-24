@@ -23,16 +23,21 @@ class App
      * @var Router
      */
     private $router;
+
     /**
      * App constructor.
      * @param array $modules
+     * @param array $dependencies
      */
-    public function __construct(array $modules = [])
+    public function __construct(array $modules = [], array $dependencies = [])
     {
         $this->router = new Router();
+        if(array_key_exists('renderer', $dependencies)){
+            $dependencies['renderer']->addGlobal('router', $this->router);
+        }
         if (!empty($modules)) {
             foreach ($modules as $module) {
-                $this->modules[] = new $module($this->router);
+                $this->modules[] = new $module($this->router, $dependencies['renderer']);
             }
         }
     }

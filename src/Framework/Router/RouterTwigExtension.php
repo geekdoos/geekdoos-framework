@@ -8,7 +8,6 @@
 
 namespace App\Framework\Router;
 
-
 use Framework\Router;
 
 class RouterTwigExtension extends \Twig_Extension
@@ -35,5 +34,4 @@ class RouterTwigExtension extends \Twig_Extension
     {
         return $this->router->generateUri($path, $params);
     }
-
 }

@@ -68,7 +68,7 @@ class App
             return $request->withAttribute($key, $params[$key]);
         }, $request);
         $callback = $route->getCallback();
-        if (is_string($callback)){
+        if (is_string($callback)) {
             $callback = $this->container->get($callback);
         }
 

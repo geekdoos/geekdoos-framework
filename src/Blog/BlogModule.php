@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: okhachiai
- * Date: 23/02/2018
- * Time: 10:40
- */
 
 namespace App\Blog;
 
@@ -17,6 +11,10 @@ class BlogModule extends Module
 {
     const DEFINITIONS = __DIR__.'/config.php';
 
+    const MIGRATIONS = __DIR__.'/Database/migrations';
+
+    const SEEDS = __DIR__.'/Database/seeds';
+
     /**
      * @var RendererInterface
      */
@@ -28,5 +26,4 @@ class BlogModule extends Module
         $router->get($prefix, BlogActions::class, 'blog.index');
         $router->get($prefix.'/{slug:[a-z0-9\-]+}', BlogActions::class, 'blog.show');
     }
-
 }

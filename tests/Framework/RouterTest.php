@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: okhachiai
- * Date: 22/02/2018
- * Time: 17:24
- */
 
 namespace Tests\Framework;
 

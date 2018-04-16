@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: okhachiai
- * Date: 23/02/2018
- * Time: 10:53
- */
 
 namespace Tests\Modules;
 

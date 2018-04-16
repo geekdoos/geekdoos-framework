@@ -10,7 +10,7 @@ return [
     'database' => [
         "adapter" => "mysql",
         "host" => "localhost",
-        "name" => "development_db",
+        "name" => "geekdoos",
         "user" => "root",
         "pass" => "",
         "port" => "3306",

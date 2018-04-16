@@ -5,7 +5,8 @@ namespace App\Blog\Actions;
 use App\Framework\Renderer\RendererInterface;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
-class BlogActions{
+class BlogActions
+{
 
     /**
      * @var RendererInterface
@@ -20,12 +21,11 @@ class BlogActions{
     public function __invoke(Request $request)
     {
         $slug = $request->getAttribute('slug');
-        if ($slug){
+        if ($slug) {
             return $this->show($slug);
-        }else{
+        } else {
             return $this->index();
         }
-
     }
     
     public function index() : string

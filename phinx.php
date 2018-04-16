@@ -1,9 +1,25 @@
 <?php
+
 require "public/index.php";
+
+$migrations = $seeds = [];
+
+foreach ($modules as $module){
+    if(!is_null($module::MIGRATIONS)){
+        $migrations[] = $module::MIGRATIONS;
+    }
+}
+
+foreach ($modules as $module){
+    if(!is_null($module::SEEDS)){
+        $seeds[] = $module::SEEDS;
+    }
+}
+
 return [
     "paths" => [
-            "migrations" => "",
-            "seeds" => ""
+            "migrations" => $migrations,
+            "seeds" => $seeds,
     ],
     "environments" => [
         "default_migration_table" => "geekdoos_migrations",
@@ -55,3 +71,4 @@ environments:
         charset: utf8
 
 version_order: creation
+*/

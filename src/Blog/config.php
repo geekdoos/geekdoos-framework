@@ -1,7 +1,8 @@
 <?php
 
 use App\Blog\BlogModule;
-use function \DI\{get, autowire};
+use function \DI\get;
+use function \DI\autowire;
 
 return [
     'blog.prefix' => '/blog',

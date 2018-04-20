@@ -22,4 +22,16 @@ return [
     ],
     Router::class => create(),
     RendererInterface::class => factory(TwigRendererFactory::class),
+    \PDO::class => function(\Psr\Container\ContainerInterface $c){
+        $pdo = new PDO('mysql:host='.$c->get('database')['host'].';dbname='.$c->get('database')['name'],
+            $c->get('database')['user'],
+            $c->get('database')['pass'],
+            [
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+            ]);
+        $pdo->exec("SET CHARACTER SET utf8");
+
+        return $pdo;
+    },
 ];

@@ -20,12 +20,12 @@ trait RouterAwareAction
      * @param array $params
      * @return ResponseInterface
      */
-    public function redirect(string $path, array $params) : ResponseInterface{
+    public function redirect(string $path, array $params) : ResponseInterface
+    {
 
             $uri = $this->router->generateUri($path, $params);
             return (new Response())
                 ->withStatus(301)
                 ->withHeader('location', $uri);
-
     }
 }

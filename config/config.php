@@ -3,6 +3,9 @@
 use App\Framework\Renderer\RendererInterface;
 use App\Framework\Renderer\TwigRendererFactory;
 use App\Framework\Router\RouterTwigExtension;
+use App\Framework\Twig\PagerFantaExtension;
+use App\Framework\Twig\TextExtension;
+use App\Framework\Twig\TimeExtension;
 use Framework\Router;
 use function \DI\{create, factory};
 
@@ -19,6 +22,9 @@ return [
     'views.path' => dirname(__DIR__).'/templates',
     'twig.extensions' => [
         \DI\get(RouterTwigExtension::class),
+        \DI\get(PagerFantaExtension::class),
+        \DI\get(TextExtension::class),
+        \DI\get(TimeExtension::class),
     ],
     Router::class => create(),
     RendererInterface::class => factory(TwigRendererFactory::class),

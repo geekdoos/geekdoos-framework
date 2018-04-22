@@ -74,10 +74,17 @@ class Router
      * Get the generated URI
      * @param string $name Route name
      * @param array $params Route params
+     * @param array $queryParams
      * @return string|null the generated URI
      */
-    public function generateUri(string $name, array $params) : ?string
+    public function generateUri(string $name, array $params = [], array $queryParams = []) : ?string
     {
-        return $this->router->generateUri($name, $params);
+        $url =  $this->router->generateUri($name, $params);
+
+        if (!empty($queryParams)) {
+            return $url .'?'. http_build_query($queryParams);
+        }
+
+        return $url;
     }
 }
